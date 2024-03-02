@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Lesson</title>
+  </head>
+  <body>
+    <h1>Add a Lesson</h1>
+    <form action="/lessons" method="post">
+      <div class="form-section">
+        <label for="class">Class</label>
+        <input type="text" name="lesson[class]" id="class" />
+      </div>
+      <div class="form-section">
+        <label for="title">Title</label>
+        <input type="text" name="lesson[title]" id="title" />
+      </div>
+      <div class="form-section">
+        <label for="starter">Starter</label>
+        <textarea
+          name="lesson[starter]"
+          id="starter"
+          cols="30"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-section">
+        <label for="main">Main Task</label>
+        <textarea name="lesson[main]" id="main" cols="30" rows="3"></textarea>
+      </div>
+      <div class="form-section">
+        <label for="plenary">Plenary</label>
+        <textarea
+          name="lesson[plenary]"
+          id="plenary"
+          cols="30"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-section">
+        <label for="date">Date</label>
+        <input type="text" name="lesson[date]" id="date" />
+      </div>
+      <div class="form-section">
+        <label for="period">Period</label>
+        <input type="number" name="lesson[period]" id="period" />
+      </div>
+      <button>Add Lesson</button>
+    </form>
+    <a href="/lessons">Go Back To All Lessons</a>
+  </body>
+</html>

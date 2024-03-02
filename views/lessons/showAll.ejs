@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Lessons</title>
+  </head>
+  <body>
+    <ul>
+      <% for(let lesson of lessons) { %>
+      <li>
+        <a href="/lessons/<%=lesson._id%>"
+          ><%=lesson.title%> ---- <%=lesson.class%></a
+        >
+      </li>
+      <% } %>
+    </ul>
+    <a href="/lessons/add">Add a New Lesson</a>
+  </body>
+</html>

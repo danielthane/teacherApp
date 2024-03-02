@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=detailedLesson.title%> -- <%=detailedLesson.title%></title>
+  </head>
+  <body>
+    <h1>
+      Lesson For: <%=detailedLesson.class%> -- <%=detailedLesson.title%> --
+      Period <%=detailedLesson.period%>
+    </h1>
+    <h3><%=detailedLesson.title%></h3>
+    <h5>Starter</h5>
+    <p><%=detailedLesson.starter%></p>
+    <h5>Main</h5>
+    <p><%=detailedLesson.main%></p>
+    <h5>Plenary</h5>
+    <p><%=detailedLesson.plenary%></p>
+    <a href="/lessons">Go Back to All Lessons</a>
+    <a href="/lessons/<%=detailedLesson._id%>/update">Edit This Lesson</a>
+    <form
+      action="/lessons/<%=detailedLesson._id%>?_method=delete"
+      method="post"
+    >
+      <button>Delete This Lesson</button>
+    </form>
+  </body>
+</html>
