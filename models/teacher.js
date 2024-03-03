@@ -10,6 +10,7 @@ const TeacherSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  classes: {},
 });
 
 const Teacher = mongoose.model("Teacher", TeacherSchema);

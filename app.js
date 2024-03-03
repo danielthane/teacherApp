@@ -68,7 +68,6 @@ app.put("/lessons/:id", async (req, res) => {
   const lesson = await Lesson.findByIdAndUpdate(id, {
     ...req.body.lesson,
   });
-  console.log(lesson._id);
   res.redirect(`/lessons/${lesson._id}`);
 });
 
