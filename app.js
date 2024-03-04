@@ -3,7 +3,9 @@ const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const methodOverrride = require("method-override");
-const Lesson = require("./models/lessonPlan");
+
+const lessonsRoutes = require("./routes/lessons");
+const classDataRoutes = require("./routes/classData");
 
 // Database connection
 mongoose.connect("mongodb://localhost:27017/teacherApp");
@@ -29,54 +31,8 @@ app.get("/", (req, res) => {
 });
 
 // Routes for lessons
-
-// Render the form to add a new lesson
-app.get("/lessons/add", (req, res) => {
-  res.render("lessons/add");
-});
-
-// Route to Add a new Lesson to DB
-app.post("/lessons", async (req, res) => {
-  const newLesson = new Lesson(req.body.lesson);
-  await newLesson.save();
-  res.redirect("/lessons");
-});
-
-// Show all lessons for a user
-app.get("/lessons", async (req, res) => {
-  const lessons = await Lesson.find({});
-  res.render("lessons/showAll", { lessons });
-});
-
-// Show more detail of a given lesson
-app.get("/lessons/:id", async (req, res) => {
-  const { id } = req.params;
-  const detailedLesson = await Lesson.findById(id);
-  res.render("lessons/showOne", { detailedLesson });
-});
-
-// Serve Form to Update a Lesson
-app.get("/lessons/:id/update", async (req, res) => {
-  const { id } = req.params;
-  const lessonToUpdate = await Lesson.findById(id);
-  res.render("lessons/update", { lessonToUpdate });
-});
-
-// Put Request to Update a Lesson
-app.put("/lessons/:id", async (req, res) => {
-  const { id } = req.params;
-  const lesson = await Lesson.findByIdAndUpdate(id, {
-    ...req.body.lesson,
-  });
-  res.redirect(`/lessons/${lesson._id}`);
-});
-
-// Delete request method
-app.delete("/lessons/:id", async (req, res) => {
-  const { id } = req.params;
-  await Lesson.findByIdAndDelete(id);
-  res.redirect("/lessons");
-});
+app.use("/lessons", lessonsRoutes);
+app.use("/classes", classDataRoutes);
 
 app.listen(port, () => {
   console.log(`Serving app on port ${port}`);

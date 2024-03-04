@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate') %>
+<h1>Detailed Information For: <%=detailedClass.className%></h1>
+<h3>Teacher: <%=detailedClass.teacher%></h3>
+<h5>KeyStage <%=detailedClass.keyStage%></h5>
+<h5>Class Size: <%=detailedClass.classSize%></h5>
+
+<h5>Other Information</h5>
+<p><%=detailedClass.otherInfo%></p>
+<form action="/classes/<%=detailedClass._id%>?_method=delete" method="post">
+  <a class="btn btn-warning" href="/classes/<%=detailedClass._id%>/update"
+    >Edit This class</a
+  >
+  <button class="btn btn-danger">Delete This Class</button>
+</form>
+<a href="/classes">Go Back to All Classes</a>
+<% layout('layouts/boilerplate') %>

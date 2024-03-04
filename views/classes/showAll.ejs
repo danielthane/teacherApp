@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %>
+<ul>
+  <% for(let c of classes) { %>
+  <li>
+    <a href="/classes/<%=c._id%>"><%=c.className%></a>
+  </li>
+  <% } %>
+</ul>
+<a class="btn btn-success" href="/classes/add">Add a New Class</a>

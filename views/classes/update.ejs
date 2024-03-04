@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="text-center">Add a Class</h1>
+<div class="col-6 offset-3">
+  <form action="/classes/<%=classToUpdate._id%>?_method=put" method="post">
+    <div class="input-group input-group-sm mb-3">
+      <label class="input-group-text" for="className">Class Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="classData[className]"
+        id="className"
+        value="<%= classToUpdate.className %>"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <label class="input-group-text" for="keyStage">Key Stage</label>
+      <input
+        class="form-control"
+        type="number"
+        name="classData[keyStage]"
+        id="keyStage"
+        value="<%= classToUpdate.keyStage %>"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <label class="input-group-text" for="classSize">Class Size</label>
+      <input
+        class="form-control"
+        type="number"
+        name="classData[classSize]"
+        id="classSize"
+        value="<%= classToUpdate.classSize %>"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <label class="input-group-text" for="teacher">Teacher Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="classData[teacher]"
+        id="teacher"
+        value="<%= classToUpdate.teacher %>"
+      />
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <label class="input-group-text" for="otherInfo">Other Information</label>
+      <textarea
+        class="form-control"
+        name="classData[otherInfo]"
+        id="otherInfo"
+        cols="30"
+        rows="3"
+      >
+<%= classToUpdate.otherInfo %></textarea
+      >
+    </div>
+    <button class="btn btn-success">Update Class</button>
+  </form>
+  <a href="/classes/<%= classToUpdate._id %>">Back to Class</a>
+</div>
